@@ -27,7 +27,8 @@ var server = http.createServer(function(request, response){
 
 
 
-  if(path == '/'){
+  if(path === '/'){
+    response.statusCode = 200
     response.setHeader('Content-Type','text/html;charset=utf-8')
     response.write('<!DOCTYPE>\n<html>'+
     '<head><link rel ="stylesheet" href = "/style">'+
@@ -36,11 +37,13 @@ var server = http.createServer(function(request, response){
     '<script src = "/script"></script>' +
     '</body></html>')
     response.end()
-  }else if(path == '/style'){
+  }else if(path === '/style'){
+    response.statusCode = 200
     response.setHeader('Content-Type','text/css;charset=utf-8')
     response.write('body{font-size:24px;}h1{color:red;}')
     response.end()
-  }else if(path == '/script'){
+  }else if(path === '/script'){
+    response.statusCode = 200
     response.setHeader('Content-Type','text/javascript;charset=utf-8')
     response.write('alert("网页加载完成")')
     response.end()
